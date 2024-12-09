@@ -41,6 +41,10 @@ def convert_tcx_to_gpx(tcx_file):
 
                     gpx_trackpoint = etree.SubElement(gpx_segment, "trkpt")
 
+                    # Hardcode: we do not need lat / lon
+                    gpx_trackpoint.set("lat", str(1.3112655903062385))
+                    gpx_trackpoint.set("lon", str(103.8157164277463))
+
                     time = trackpoint.find('.//{*}Time')
                     if time is not None:
                         time_elem = etree.SubElement(gpx_trackpoint, "time")
